@@ -9,6 +9,7 @@ import org.datamapping.springdatajpamapping.model.College;
 import org.datamapping.springdatajpamapping.model.Student;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -77,21 +78,21 @@ public class DataService {
         student1.setName("Aayush");
         student1.setEmail("aayush@gmail.com>");
         student1.setPhone("9009909090");
-        student1.setCollege(college1);
+        student1.setCollege(new HashSet<>(List.of(college1)));
         student1.setAddress(address1);
 
         Student student2 = new Student();
         student2.setName("Rajesh");
         student2.setEmail("rajesh@gmail.com");
         student2.setPhone("9009909091");
-        student2.setCollege(college2);
+        student2.setCollege(new HashSet<>(List.of(college2)));
         student2.setAddress(address2);
 
         Student student3 = new Student();
         student3.setName("Manpreet");
         student3.setEmail("manpreet@gmail.com");
         student3.setPhone("9009909092");
-        student3.setCollege(college3);
+        student3.setCollege(new HashSet<>(List.of(college1, college3)));
         student3.setAddress(address3);
 
         studentRepository.save(student1);

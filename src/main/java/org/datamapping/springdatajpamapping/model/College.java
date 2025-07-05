@@ -6,8 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -21,7 +21,7 @@ public class College {
     private String city;
     private String state;
 
-    @OneToMany(mappedBy = "college", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "college")
     @JsonManagedReference
-    private List<Student> student = new ArrayList<>();
+    private Set<Student> student = new HashSet<>();
 }
